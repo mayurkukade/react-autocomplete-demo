@@ -9,7 +9,6 @@ const AutoComplete = ({ value: _localValue, options=["Oranges", "Apples", "Pears
 
 	useEffect(() => {
 		const handleClick = (event) => {
-			if (!showSuggestions) return;
 			if (autoCompleteRef.current && !autoCompleteRef.current.contains(event.target)) {
 				setShowSuggestions(false);
 			}
