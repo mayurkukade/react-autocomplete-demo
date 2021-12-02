@@ -13,22 +13,22 @@ const App = () => {
 		"Tokyo",
 		"Washington DC",
 		"Zurich",
-    "Copenhagen",
-    "Helsinki",
-    "Madrid",
-    "Reykjavik",
-    "Stockholm",
-    "Vancouver",
-    "Vienna",
-    "Zagreb",
-    "Budapest",
-    "Dublin",
-    "Hamburg",
-    "Krakow",
-    "Lisbon",
-    "Ljubljana",
-  ];
-  
+		"Copenhagen",
+		"Helsinki",
+		"Madrid",
+		"Reykjavik",
+		"Stockholm",
+		"Vancouver",
+		"Vienna",
+		"Zagreb",
+		"Budapest",
+		"Dublin",
+		"Hamburg",
+		"Krakow",
+		"Lisbon",
+		"Ljubljana",
+	];
+
 	return (
 		<div className="container">
 			<AutoComplete options={cityNames} />

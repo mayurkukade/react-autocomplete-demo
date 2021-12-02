@@ -17,7 +17,6 @@ const AutoComplete = ({ value: _localValue, options=["Oranges", "Apples", "Pears
 		setShowSuggestions(false);
 	};
 
-
 	const suggestions = options.filter(option => option.toLowerCase().includes(value.toLowerCase()));
 
 	return (
