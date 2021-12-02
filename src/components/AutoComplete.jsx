@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const AutoComplete = ({ value: _localValue, options=["Oranges", "Apples", "Pears"] }) => {
 	const [value, setValue] = useState(_localValue || "");
 	const [showSuggestions, setShowSuggestions] = useState(false);
 	// const [suggestions, setSuggestions] = useState([...options]);
+
+	const autoCompleteRef = useRef();
+
+	useEffect(() => {
+		const handleClick = (event) => {
+			if (!showSuggestions) return;
+			if (autoCompleteRef.current && !autoCompleteRef.current.contains(event.target)) {
+				setShowSuggestions(false);
+			}
+		};
+		document.addEventListener("click", handleClick);
+		return () => {
+			document.removeEventListener('click', handleClick)
+		};
+	}, [])
 
 	const handleChange = (e) => {
 		const newValue = e.target.value;
@@ -20,7 +35,7 @@ const AutoComplete = ({ value: _localValue, options=["Oranges", "Apples", "Pears
 	const suggestions = options.filter(option => option.toLowerCase().includes(value.toLowerCase()));
 
 	return (
-		<div className="autocomplete">
+		<div className="autocomplete" ref={autoCompleteRef}>
 			<input
 				type="text"
 				value={value}
